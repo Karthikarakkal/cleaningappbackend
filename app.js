@@ -27,10 +27,22 @@ app.post("/search",(req,res)=>{
 
 )})
 
-app.post("/view",(req,res)=>{
+app.get("/view",(req,res)=>{
     let input=req.body
     cleaning.find().then((data)=>{
         res.json(data)})
+})
+
+app.post("/delete",(req,res)=>{
+    let input=req.body
+    cleaning.findByIdAndDelete(input._id).then(
+        (response)=>{
+        (data)=>{
+        }
+        res.json({status:"success"})
+    }).catch((Error)=>{
+        res.json({status:"error"})
+    })
 })
 
 app.listen(8005,(req,res)=>{

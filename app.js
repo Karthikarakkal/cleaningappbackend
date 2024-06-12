@@ -27,6 +27,12 @@ app.post("/search",(req,res)=>{
 
 )})
 
+app.post("/view",(req,res)=>{
+    let input=req.body
+    cleaning.find().then((data)=>{
+        res.json(data)})
+})
+
 app.listen(8005,(req,res)=>{
     console.log("server started")
 })
